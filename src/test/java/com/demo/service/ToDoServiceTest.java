@@ -16,14 +16,14 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class ToDoServiceTest {
 
-    @MockBean
-    private ToDoRepository toDoRepositoryMock;
+    @Autowired
+    private ToDoRepository toDoRepository;
 
     @Test
-    void givenRepositoryFindAllMocked_WhenFindAllServiceMethodInvoked_ThenMockValueReturned() {
+    void findAllInvoked_withValidTodoInDB_shouldReturnTodo() {
         ToDo todoSample = new ToDo("Todo Sample 1",true);
-        when(toDoRepositoryMock.findAll()).thenReturn(Arrays.asList(todoSample));
-        ToDoServiceImpl toDoServiceImpl = new ToDoServiceImpl(toDoRepositoryMock);
+        toDoRepository.save(todoSample);
+        ToDoServiceImpl toDoServiceImpl = new ToDoServiceImpl(toDoRepository);
 
         List<ToDo> toDoList = toDoServiceImpl.findAll();
         ToDo lastToDo = toDoList.get(0);
