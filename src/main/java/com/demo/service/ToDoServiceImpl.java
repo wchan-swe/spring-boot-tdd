@@ -24,6 +24,6 @@ public class ToDoServiceImpl implements ToDoService{
 
     @Override
     public ToDo save(ToDo toDo) {
-        return new ToDo();
+        return toDoRepository.save(toDo);
     }
 }
