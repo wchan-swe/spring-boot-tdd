@@ -26,7 +26,7 @@ public class ToDoServiceTest {
         ToDoServiceImpl toDoServiceImpl = new ToDoServiceImpl(toDoRepository);
 
         List<ToDo> toDoList = toDoServiceImpl.findAll();
-        ToDo lastToDo = toDoList.get(0);
+        ToDo lastToDo = toDoList.get(toDoList.size() - 1);
 
         assertEquals(todoSample.getText(), lastToDo.getText());
         assertEquals(todoSample.isCompleted(), lastToDo.isCompleted());
