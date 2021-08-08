@@ -1,7 +1,6 @@
 package com.demo.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,18 +9,17 @@ import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @Entity
 public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NonNull
     private String text;
+
+    @NonNull
     private boolean completed;
-
-    public ToDo(long id, String text, boolean completed) {
-
-        this.id = id;
-        this.text = text;
-        this.completed = completed;
-    }
 }
