@@ -32,4 +32,14 @@ public class ToDoServiceTest {
         assertEquals(todoSample.isCompleted(), lastToDo.isCompleted());
         assertEquals(todoSample.getId(), lastToDo.getId());
     }
+
+    @Test
+    void saveAToDo() {
+        ToDoServiceImpl toDoServiceImpl = new ToDoServiceImpl(toDoRepository);
+        ToDo todoSample = new ToDo("Todo Sample 1",true);
+
+        toDoServiceImpl.save(todoSample);
+
+        assertEquals(1.0, toDoRepository.count());
+    }
 }
