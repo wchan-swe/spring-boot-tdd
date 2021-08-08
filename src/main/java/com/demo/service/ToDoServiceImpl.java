@@ -19,6 +19,6 @@ public class ToDoServiceImpl implements ToDoService{
 
     @Override
     public List<ToDo> findAll() {
-        return new ArrayList<>();
+        return toDoRepository.findAll();
     }
 }
