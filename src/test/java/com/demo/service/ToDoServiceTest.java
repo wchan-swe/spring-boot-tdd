@@ -2,6 +2,7 @@ package com.demo.service;
 
 import com.demo.entity.ToDo;
 import com.demo.repository.ToDoRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,11 @@ public class ToDoServiceTest {
 
     @Autowired
     private ToDoRepository toDoRepository;
+
+    @AfterEach
+    void tearDown(){
+        toDoRepository.deleteAll();
+    }
 
     @Test
     void findAllInvoked_withValidTodoInDB_shouldReturnTodo() {
