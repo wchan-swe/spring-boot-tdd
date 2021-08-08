@@ -40,7 +40,7 @@ public class ToDoServiceTest {
     }
 
     @Test
-    void saveAToDo() {
+    void save_whenTodoIsValid_shouldReturnSavedTodo() {
         ToDoServiceImpl toDoServiceImpl = new ToDoServiceImpl(toDoRepository);
         ToDo todoSample = new ToDo("Todo Sample 1",true);
 
