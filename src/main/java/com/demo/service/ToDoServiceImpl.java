@@ -21,4 +21,9 @@ public class ToDoServiceImpl implements ToDoService{
     public List<ToDo> findAll() {
         return toDoRepository.findAll();
     }
+
+    @Override
+    public ToDo save(ToDo toDo) {
+        return new ToDo();
+    }
 }
